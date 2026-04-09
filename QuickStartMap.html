@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>University of Oregon Mapping</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!--    Include the reference to the Mapbox JavaScript here in the <head> of the page  (Part I.1)  -->
+    
+      <script src="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.js"></script>
+          
+    <!--    Include the reference to the Mapbox CSS here in between <head> tags    (Part I.2) -->
+    
+      <link href="https://api.mapbox.com/mapbox-gl-js/v3.20.0/mapbox-gl.css" rel="stylesheet">
+
+    <style>
+        /* Insert the additional CSS code here between the <style> tags  (Part I.4)   */
+        
+          body { margin:0; padding:0}
+          #map {position: absolute; top: 0; bottom: 0; width: 100%;}
+
+          #banner {z-index: 9999;
+              background-color: lightblue;
+              opacity: 70%;
+              text-align: center;
+          }
+
+    </style>
+  </head>
+
+  <body>
+    <!--  Insert the map div here in the <body> of the page  (Part I)  -->
+   
+      <div id="map"></div>
+
+    <!--  Insert the title div here (part VI) -->
+
+      <div id="banner">
+          <h1>Portland Attractions</h1>
+          <h2>By Leo Uhlig</h2>
+      </div>
+
+    <script>
+        // Insert the JavaScript within the <script> tags, within the body   
+        // Start with the Mapbox access token here (Part 2.1)
+          
+        mapboxgl.accessToken = "pk.eyJ1IjoibHVobGlnIiwiYSI6ImNtbmh5azVxZTA3cHQycHBrM2ppaWRidHIifQ.93RfYwf836-wyjee_c4yKQ";
+   
+        // Then initialize the map here (Part 2.2)
+
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/navigation-night-v1',
+          center: [-122.6788, 45.5212],
+          zoom: 11
+        })
+
+        // Add the zoom contols here (part V)
+
+        map.addControl(new mapboxgl.NavigationControl({
+          showCompass: false
+        }), 'bottom-left');
+   
+        // Add popups for markers here. Yes, before the markers!  (part IV)
+
+        var popup = new mapboxgl.Popup({offset: 25})
+          .setHTML('Hello World. Welcome to Portland!');
+
+        var popup_layer = new mapboxgl.Popup({closeOnClick: true, anchor: 'top-right'})
+          .setLngLat([-122.64, 45.5])
+          .setHTML('<h1>Hi Portland!</h1>')
+          .addTo(map);
+
+        var popup_layer_voodoo = new mapboxgl.Popup({
+          closeOnClick: true, anchor: "top-left"
+        })
+          .setLngLat([-122.673308, 45.522675])
+          .setHTML('<a href="https://www.voodoodoughnut.com">voodoo donuts</a>')
+          .addTo(map);
+
+        var popup_layer_providencePark = new mapboxgl.Popup({
+          closeOnClick: false, anchor: "top-right"
+        })
+          .setLngLat([-122.69187866609397, 45.52159348574216])
+          .setHTML('<a href="https://www.timbers.com/providencepark?utm_source=Google%20Maps%20-%20Locl.io&utm_medium=Website%20Button&utm_campaign=Google%20Maps_Locl.io2019">Providence Park</a>')
+          .addTo(map);
+        
+        // Add any other variables such as markers here (part III)
+
+        var marker = new mapboxgl.Marker({color: 'red'})
+          .setLngLat([-122.6788, 45.5212])
+          .setPopup(popup)
+          .addTo(map);
+
+        var marker2 = new mapboxgl.Marker({color: 'red'})
+        .setLngLat([-122.69, 45.55])
+        .addTo(map);
+
+        var marker3 = new mapboxgl.Marker({color: 'darkgreen'})
+          .setLngLat([-122.69187866609397, 45.52159348574216])
+          .addTo(map);
+
+        // Add optional advanced "On load" function here
+        
+    </script>
+
+  </body>
+
+</html>
