@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>Fixed Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!--    1.1.  Include the reference to the Mapbox JavaScript here in the <head> of the page  -->
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+    <!--    1.2 Include the reference to the Mapbox CSS here in the <head> of the page  -->
+      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        /* 1.4 Insert the CSS code here between the <style> tags */
+        
+          body { margin: 50px; padding: 0;}
+          #map1 { position: relative; height: 300px; width: 100%;}
+
+        /* 2.5.2 Insert additional CSS code here between the <style> tags */
+
+          #map2 {position: relative; height: 300px; width: 100%;}
+
+
+          #map3 {position: relative; height: 300px; width: 100%;}
+
+    </style>
+  </head>
+
+  <body>
+        <!-- 1.3 Insert the div for the structure of the page here in the <body> of the page -->
+          <h1> Goose Hollow Inn: </h1>
+            <p> A charming eatery off the beaten path. Known for their fantastic ruben. </p>
+            <div id="map1"></div>
+          <hr>
+
+          <h1> The Cheerful Bullpen: </h1>
+            <p>
+              A classic dive bar located right across the street from Providence Park. 
+              This is a great place to grab a bite or a drink before watching a Timbers or Thorns match.
+            </p>
+            <div id="map2"></div>
+          <hr>
+
+          <h1> The Mox Boarding House: </h1>
+            <p>
+              A combination restaurant and board game store. 
+              Perfect for meeting some friends and finding new game night activities.
+            </p>
+            <div id="map3"></div>
+        <script>
+            /* Insert the JavaScript within the <script> tags, within the body */
+            // 2.1 Start with the Mapbox access token
+
+            mapboxgl.accessToken = "pk.eyJ1IjoibHVobGlnIiwiYSI6ImNtbmh5azVxZTA3cHQycHBrM2ppaWRidHIifQ.93RfYwf836-wyjee_c4yKQ";
+
+            // 2.2 Then initialize the first map
+
+            var map = new mapboxgl.Map({
+              container: 'map1',
+              style: 'mapbox://styles/mapbox/streets-v11',
+              center: [-122.69364149722705, 45.51863488535922],
+              zoom: 15
+            });
+
+            // 2.3 Add any other variables (such as popups and markers) to the first map
+
+            var popup = new mapboxgl.Popup()
+              .setText('The Goose Hollow Inn');
+            
+            var marker = new mapboxgl.Marker({color:'red'})
+              .setLngLat([-122.69364149722705, 45.51863488535922])
+              .setPopup(popup)
+              .addTo(map)
+
+            // 2.4 Add arguments to disable the map interactivity here
+            // Disable drag and zoom handlers.
+
+            map.dragPan.disable();
+            map.scrollZoom.disable();
+            map.boxZoom.disable();
+            map.dragRotate.disable();
+            map.keyboard.disable();
+            map.doubleClickZoom.disable();
+            map.touchZoomRotate.disable();
+            map.touchZoomRotate.disableRotation();
+
+            // 2.5.3 Then initialize the 2nd map
+
+            var map2 = new mapboxgl.Map({
+              container: 'map2',
+              style: 'mapbox://styles/mapbox/streets-v11',
+              center: [ -122.6913562553183, 45.52064952621165 ], 
+              zoom: 15
+            });
+
+            // 2.5.4 Add any other variables (such as markers) to the second map
+
+            var popup2 = new mapboxgl.Popup()
+            .setText('The Cheerful Bullpen');
+
+            var marker2 = new mapboxgl.Marker({color: 'blue'})
+            .setLngLat([-122.6913562553183, 45.52064952621165])
+            .setPopup(popup2)
+            .addTo(map2);
+
+            // 2.5.5 Add arguments to disable the second map's interactivity here
+
+            map2.dragPan.disable();
+            map2.scrollZoom.disable();
+            map2.boxZoom.disable();
+            map2.dragRotate.disable();
+            map2.keyboard.disable();
+            map2.doubleClickZoom.disable();
+            map2.touchZoomRotate.disable();
+            map2.touchZoomRotate.disableRotation();
+
+
+            // Map 3
+            var map3 = new mapboxgl.Map({
+            container: 'map3',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-122.68977704715678, 45.5230101868778],  
+            zoom: 15
+            });
+
+            var popup3 = new mapboxgl.Popup()
+            .setText('The Mox Boarding House');
+
+            var marker3 = new mapboxgl.Marker({color: "green"})
+            .setLngLat([-122.68977704715678, 45.5230101868778])
+            .setPopup(popup3)
+            .addTo(map3);
+
+            map3.dragPan.disable();
+            map3.scrollZoom.disable();
+            map3.boxZoom.disable();
+            map3.dragRotate.disable();
+            map3.keyboard.disable();
+            map3.doubleClickZoom.disable();
+            map3.touchZoomRotate.disable();
+            map3.touchZoomRotate.disableRotation();
+
+            // 2.6 Change the map pointers
+
+            map.getCanvas().style.cursor = 'auto';
+            map2.getCanvas().style.cursor = 'auto';
+            map3.getCanvas().style.cursor = 'auto';
+
+        </script>
+  </body>
+</html>
