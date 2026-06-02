@@ -8,48 +8,6 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
-           /*  style for paragraph tags */
-        p {
-            color: white;
-        }
-
-        /* style for heading level 4 tags */
-        h4 {
-            color: white;
-            margin-left: 10px;
-        }
-
-
-        /*  style for items with the class "descriptionPanel" */
-        .descriptionPanel {
-            position: absolute;
-            bottom: 65px;
-            left: 20px;
-            z-index: 2;
-            width: 300px;
-            height: 40px;
-            background: rgba(80, 80, 80, .75);
-            transition: width 2s, height 2s;
-            overflow: hidden;
-            border-radius: 7px;
-        }
-     
-
-        /* style for items with the class "layerDescription" */
-        .layerDescription {
-            color: white;
-            padding-left: 10px;
-        }
-
-            
-
-        /* style for items with the class "chevron" */
-        .chevron {
-            position: relative;
-            margin-left: 45%;
-            font-size: x-large;
-            color: white;
-        }
 
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -58,19 +16,7 @@
 <body>
 
     <div id='map'></div>
-
-    <!-- map description panel 
-    <div class="descriptionPanel" id="descriptionPanel" style="height: 250px;">
-        <span onClick=panelSelect() id="glyph" class="chevron glyphicon glyphicon-chevron-down"></span>
-        <hr/>
-        <h4>WHAT AM I LOOKING AT?</h4>
-        <p style="margin-left: 10px; margin-right: 10px;">
-        This is a map showing every single person in the Portland Area as a dot. Data is taken from the 2017 US Census, and is accurate at the level of a block; however, within each block location is randomized. Points are colored based on the number of homeowners versus renters on a block.
-        </p>
-    </div>
--->
     
-
     <script>
         //Mapbox token and stylesheet for Portland map
         mapboxgl.accessToken = 'pk.eyJ1IjoibHVobGlnIiwiYSI6ImNtbmh5azVxZTA3cHQycHBrM2ppaWRidHIifQ.93RfYwf836-wyjee_c4yKQ'; 
@@ -85,20 +31,6 @@
         //Add zoom and rotation control
         map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
-        var state = { panelOpen: true };
-
-        function panelSelect(e){
-        if(state.panelOpen){
-            document.getElementById('descriptionPanel').style.height = '26px';
-            document.getElementById('glyph').className = "chevron glyphicon glyphicon-chevron-up";
-            state.panelOpen = false;
-        } else {
-            document.getElementById('descriptionPanel').style.height = '250px';
-            document.getElementById('glyph').className = "chevron glyphicon glyphicon-chevron-down";
-            state.panelOpen = true;
-        }
-        }
-
         //markers
         var marker1 = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-123.0249370143903, 45.52487467116839])
@@ -108,8 +40,6 @@
             .setLngLat([-111.11299743789438, 44.66404634409209])
             .addTo(map)
 
-
-        
         
     </script>
 
