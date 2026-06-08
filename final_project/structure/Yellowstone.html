@@ -31,15 +31,61 @@
         //Add zoom and rotation control
         map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
+
+        //popups
+        var Popup1 = new mapboxgl.Popup()
+            .setHTML("Launching point in Hillsboro, Oregon");
+
+
         //markers
-        var marker1 = new mapboxgl.Marker({color: "darkred"})
+        var HillsboroMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-123.0249370143903, 45.52487467116839])
-            .addTo(map)
+            .setPopup(Popup1)
+            .addTo(map);
 
-        var marker2 = new mapboxgl.Marker({color: "darkred"})
+        var YellowstoneMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-111.11299743789438, 44.66404634409209])
-            .addTo(map)
+            .addTo(map);
 
+        //ROUTE B
+        //-----------------------------------------------------------------------
+        var MultnomahMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-122.07812398340792, 45.579724926842175])
+            .setPopup(Popup1)
+            .addTo(map);
+
+        var PendeltonMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-118.67467847972134, 45.667469906630835])
+            .setPopup(Popup1)
+            .addTo(map);
+        
+        var HermistonMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-119.27514144749358, 45.83917553162739])
+            .setPopup(Popup1)
+            .addTo(map);
+
+        var BonvilleMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-116.05176106118466, 43.496175370279396])
+            .setPopup(Popup1)
+            .addTo(map);
+        
+        var ShoshoneMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-114.26764025870881, 42.62434464194753])
+            .setPopup(Popup1)
+            .addTo(map);
+
+        var RegisterMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-113.0386057136546, 42.65274997340813])
+            .setPopup(Popup1)
+            .addTo(map);
+        
+        var CalderaMarker = new mapboxgl.Marker({color: "darkblue"})
+            .setLngLat([-111.44556662643467, 44.18472043711756])
+            .setPopup(Popup1)
+            .addTo(map);
+        
+        
+        //-----------------------------------------------------------------------
         
     </script>
 
