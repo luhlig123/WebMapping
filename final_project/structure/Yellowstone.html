@@ -4,12 +4,16 @@
     <meta charset='utf-8' />
     <title>Yellowstone Roadtrip</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
 
         body { 
+            font-family: "Open Sans", sans-serif;
             margin:0;
             padding:0; 
             display: flex;
@@ -28,21 +32,41 @@
         .route-a-button {
             background-color: darkgreen;
             color: white;
+            width: 100%;
+        }
+
+        .route-a-button:hover {
+            background-color: green;
         }
 
         .route-b-button {
             background-color: darkblue;
             color: white;
+            width: 100%;
+        }
+
+        .route-b-button:hover {
+            background-color: blue;
         }
 
         .route-c-button {
             background-color: darkred;
             color: white;
+            width: 100%;
+        }
+
+        .route-c-button:hover {
+            background-color: red;
         }
 
         .location-button {
             background-color: lightgrey;
             color: black;
+            width: 100%;
+        }
+
+        .location-button:hover {
+            background-color: white;
         }
 
         #map { height: 100%; width:66%; }
@@ -54,35 +78,50 @@
 
     <div class="sidebar">
         <h2>Hillsboro To Yellowstone</h2>
-        <p>Use this map to plan your next trip!</p>
+        <p>Use this map to plan your next road trip!</p>
+        <p>
+            Use the locations buttons below to navigate to points of interest and 
+            use the route buttons to return to a full map view.
+        </p>
         <hr>
         <button class="route-a-button" id="route-a">Route A</button>
-        <ul>
-            <li><button class="location-button" id="Multnomah-A">Multnomah Falls</button></li>
-            <li><button class="location-button" id="Hermiston-A">Hermiston</button></li>
-            <li><button class="location-button" id="Sprague-A">Sprague Lake</button></li>
-            <li><button class="location-button" id="Arbor-A">John Finch Arboretum</button></li>
-            <li><button class="location-button" id="Higgins-A">Higgins Point</button></li>
-            <li><button class="location-button" id="Beaver-A">Beavertail National Forest</button></li>
-        </ul>
+        
+            <button class="location-button" id="Hillsboro-A">Hillsboro</button>
+            <button class="location-button" id="Multnomah-A">Multnomah Falls</button>
+            <button class="location-button" id="Hermiston-A">Hermiston</button>
+            <button class="location-button" id="Sprague-A">Sprague Lake</button>
+            <button class="location-button" id="Arbor-A">John Finch Arboretum</button>
+            <button class="location-button" id="Higgins-A">Higgins Point</button>
+            <button class="location-button" id="Beaver-A">Beavertail National Forest</button>
+            <button class="location-button" id="Yellowstone-A">Yellowstone</button>
+        <hr>
         <button class="route-b-button" id="route-b">Route B</button>
-        <ul>
-            <li><button class="location-button" id="Multnomah-B">Multnomah Falls</button></li>
-            <li><button class="location-button" id="Hermiston-B">Hermiston</button></li>
-            <li><button class="location-button" id="Pendelton-B">Pendelton</button></li>
-            <li><button class="location-button" id="Bonville-B">Bonville Point</button></li>
-            <li><button class="location-button" id="Shoshone-B">Shoshone Falls National PArk</button></li>
-            <li><button class="location-button" id="Register-B">Register Rock</button></li>
-            <li><button class="location-button" id="Caldera-B">Volcanic Calderas Historical Marker</button></li>
-        </ul>
-        </ul>
+        
+            <button class="location-button" id="Hillsboro-B">Hillsboro</button>
+            <button class="location-button" id="Multnomah-B">Multnomah Falls</button>
+            <button class="location-button" id="Hermiston-B">Hermiston</button>
+            <button class="location-button" id="Pendelton-B">Pendelton</button>
+            <button class="location-button" id="Bonville-B">Bonville Point</button>
+            <button class="location-button" id="Shoshone-B">Shoshone Falls National Park</button>
+            <button class="location-button" id="Register-B">Register Rock</button>
+            <button class="location-button" id="Caldera-B">Volcanic Calderas Historical Marker</button>
+            <button class="location-button" id="Yellowstone-B">Yellowstone</button>
+        
+        <hr>
         <button class="route-c-button" id="route-c">Route C</button>
+        
+            <button class="location-button" id="Hillsboro-C">Hillsboro</button>
+            <button class="location-button" id="Bend-C">Bend</button>
+            <button class="location-button" id="Bonville-C">Bonville Point</button>
+            <button class="location-button" id="Shoshone-C">Shoshone Falls National Park</button>
+            <button class="location-button" id="Register-C">Register Rock</button>
+            <button class="location-button" id="Caldera-C">Volcanic Calderas Historical Marker</button>
+            <button class="location-button" id="Yellowstone-C">Yellowstone</button>
+        <hr>
+        <h4>Data Sources</h4>
         <ul>
-            <li><button class="location-button" id="Bend-C">Bend</button></li>
-            <li><button class="location-button" id="Bonville-C">Bonville Point</button></li>
-            <li><button class="location-button" id="Shoshone-C">Shoshone Falls National PArk</button></li>
-            <li><button class="location-button" id="Register-C">Register Rock</button></li>
-            <li><button class="location-button" id="Caldera-C">Volcanic Calderas Historical Marker</button></li>
+            <li>one</li>
+            <li>two</li>
         </ul>
     </div>
 
@@ -93,7 +132,9 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoibHVobGlnIiwiYSI6ImNtbmh5azVxZTA3cHQycHBrM2ppaWRidHIifQ.93RfYwf836-wyjee_c4yKQ'; 
         var map = new mapboxgl.Map({
             container: 'map', // container id
-            center: [-116.0249370143903, 45.52487467116839],  
+            center: [-116.0249370143903, 45.52487467116839], 
+            maxBounds: [[-128.2455456259673, 40.388655973728326],
+                        [-101.36397750978597, 49.00018256498143]], 
             zoom: 5.3,
             minZoom: 5,
             style: 'mapbox://styles/luhlig/cmpd53j8c002r01pt2e5hcv8q' // stylesheet location
@@ -107,18 +148,80 @@
 
 
         var HillsboroPopupContent = "<h3>Hillsboro, Oregon</h3>"
-        HillsboroPopupContent += "<p>Launching point in Hillsboro, Oregon</p>"
+        HillsboroPopupContent += "<p>The journey starts here!</p>"
         var HillsboroPopup = new mapboxgl.Popup()
             .setHTML(HillsboroPopupContent);
 
-
-        var MultnomahPopupContent = "<h3>Multnomah Falls</h3>"
-        MultnomahPopupContent += "<p>Launching point in Hillsboro, Oregon</p>"
+        var MultnomahPopupContent = "<h3>Multnomah Falls, Oregon</h3>"
+        MultnomahPopupContent += "<p>If you love stunning waterfall views, this is a 'can't miss' stop.</p>"
         var MultnomahPopup = new mapboxgl.Popup()
             .setHTML(MultnomahPopupContent);
 
+        var PendeltonPopupContent = "<h3>Pendelton, Oregon</h3>"
+        PendeltonPopupContent += "<p>A small town in Oregon known for their woolen mills.</p>"
+        var PendeltonPopup = new mapboxgl.Popup()
+            .setHTML(PendeltonPopupContent);
 
-        //markers
+        var HermistonPopupContent = "<h3>Hermiston, Oregon</h3>"
+        HermistonPopupContent += "<p>A small town in Oregon known for their watermelons.</p>"
+        var HermistonPopup = new mapboxgl.Popup()
+            .setHTML(HermistonPopupContent);
+
+        var BonvillePopupContent = "<h3>Bonville Point, Idaho</h3>"
+        BonvillePopupContent += "<p>A scenic lookout located along the remnants of the Oregon Trail.</p>"
+        var BonvillePopup = new mapboxgl.Popup()
+            .setHTML(BonvillePopupContent);
+
+        var ShoshonePopupContent = "<h3>Shoshone Falls National Park, Idaho</h3>"
+        ShoshonePopupContent += "<p>Dubbed 'The Niagra of the West', this park contains one of the biggest waterfalls in the country</p>"
+        var ShoshonePopup = new mapboxgl.Popup()
+            .setHTML(ShoshonePopupContent);
+
+        var RegisterPopupContent = "<h3>Register Rock, Idaho</h3>"
+        RegisterPopupContent += "<p>A historical site marking the paths of travelers on the Oregon Trail.</p>"
+        var RegisterPopup = new mapboxgl.Popup()
+            .setHTML(RegisterPopupContent);
+
+        var CalderaPopupContent = "<h3>Volcanic Caldera Historical Marker, Idaho</h3>"
+        CalderaPopupContent += "<p>The remnants of volcanic activity 2 million years ago.</p>"
+        var CalderaPopup = new mapboxgl.Popup()
+            .setHTML(CalderaPopupContent);
+
+        var BendPopupContent = "<h3>Bend, Oregon</h3>"
+        BendPopupContent += "<p>A town in Oregon</p>"
+        var BendPopup = new mapboxgl.Popup()
+            .setHTML(BendPopupContent);
+
+        var SpraguePopupContent = "<h3>Sprague Lake, Washington</h3>"
+        SpraguePopupContent += "<p>A popular hiking and birding destination.</p>"
+        var SpraguePopup = new mapboxgl.Popup()
+            .setHTML(SpraguePopupContent);
+
+        var ArborPopupContent = "<h3>John Finch Arboretum, Washington</h3>"
+        ArborPopupContent += "<p>A sprawling collection of local trees and greenery.</p>"
+        var ArborPopup = new mapboxgl.Popup()
+            .setHTML(ArborPopupContent);
+
+        var HigginsPopupContent = "<h3>Higgins Point, Idaho</h3>"
+        HigginsPopupContent += "<p>A popular hiking and sightseeing destination.</p>"
+        var HigginsPopup = new mapboxgl.Popup()
+            .setHTML(HigginsPopupContent);
+
+        var BeaverPopupContent = "<h3>Beavertail hill National Forest</h3>"
+        BeaverPopupContent += "<p>A riverside camping location.</p>"
+        var BeaverPopup = new mapboxgl.Popup()
+            .setHTML(BeaverPopupContent);
+
+        var YellowstonePopupContent = "<h3>Yellowstone National Park, Wyoming</h3>"
+        YellowstonePopupContent += "<p>You made it! Enjoy your visit.</p>"
+        var YellowstonePopup = new mapboxgl.Popup()
+            .setHTML(YellowstonePopupContent);
+
+            
+
+
+        //-----------------------------------------------------------------------
+        //Markers
         var HillsboroMarker = new mapboxgl.Marker({color: "goldenrod"})
             .setLngLat([-123.0249370143903, 45.52487467116839])
             .setPopup(HillsboroPopup)
@@ -126,70 +229,68 @@
 
         var YellowstoneMarker = new mapboxgl.Marker({color: "goldenrod"})
             .setLngLat([-111.11299743789438, 44.66404634409209])
+            .setPopup(YellowstonePopup)
             .addTo(map);
 
-
-
-        //-----------------------------------------------------------------------
-        //Markers
+        
         var MultnomahMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-122.07812398340792, 45.579724926842175])
-            .setPopup(HillsboroPopup)
+            .setPopup(MultnomahPopup)
             .addTo(map);
 
         var PendeltonMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-118.67467847972134, 45.667469906630835])
-            .setPopup(HillsboroPopup)
+            .setPopup(PendeltonPopup)
             .addTo(map);
 
         var HermistonMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-119.27514144749358, 45.83917553162739])
-            .setPopup(HillsboroPopup)
+            .setPopup(HermistonPopup)
             .addTo(map);
 
         var BonvilleMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-116.05176106118466, 43.496175370279396])
-            .setPopup(HillsboroPopup)
+            .setPopup(BonvillePopup)
             .addTo(map);
 
         var ShoshoneMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-114.26764025870881, 42.62434464194753])
-            .setPopup(HillsboroPopup)
+            .setPopup(ShoshonePopup)
             .addTo(map);
 
         var RegisterMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-113.0386057136546, 42.65274997340813])
-            .setPopup(HillsboroPopup)
+            .setPopup(RegisterPopup)
             .addTo(map);
 
         var CalderaMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-111.44556662643467, 44.18472043711756])
-            .setPopup(HillsboroPopup)
+            .setPopup(CalderaPopup)
             .addTo(map);
 
         var BendMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-121.15637241419014, 44.04502801498819])
-            .setPopup(HillsboroPopup)
+            .setPopup(BendPopup)
             .addTo(map);
 
         var SpragueMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-118.0130814864261, 47.29102060088054])
-            .setPopup(HillsboroPopup)
+            .setPopup(SpraguePopup)
             .addTo(map);
 
         var ArborMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-117.46570840904022, 47.64182673232794])
-            .setPopup(HillsboroPopup)
+            .setPopup(ArborPopup)
             .addTo(map);
 
         var HigginsMarker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-116.68601979717064, 47.62858525494916])
-            .setPopup(HillsboroPopup)
+            .setPopup(HigginsPopup)
             .addTo(map);
             
         var BeaverMaker = new mapboxgl.Marker({color: "darkred"})
             .setLngLat([-113.58233792807872, 46.722796929835596])
-            .setPopup(HillsboroPopup)
+            .setPopup(BeaverPopup)
             .addTo(map);
         //-----------------------------------------------------------------------
 
@@ -219,6 +320,14 @@
         });
 
         //Route A
+
+        document.getElementById('Hillsboro-A').addEventListener('click', function () {
+                map.flyTo({
+                    center: [-123.0249370143903, 45.52487467116839],
+                    zoom: 11
+                })
+            });
+
         document.getElementById('Multnomah-A').addEventListener('click', function () {
                 map.flyTo({
                     center: [-122.07812398340792, 45.579724926842175],
@@ -261,8 +370,22 @@
                 })
             });
 
+        document.getElementById("Yellowstone-A").addEventListener('click', function () {
+                map.flyTo({
+                    center: [-111.11299743789438, 44.66404634409209],
+                    zoom: 11
+                })
+            });
+
 
         //Route B
+        document.getElementById('Hillsboro-B').addEventListener('click', function () {
+                map.flyTo({
+                    center: [-123.0249370143903, 45.52487467116839],
+                    zoom: 11
+                })
+            });
+
         document.getElementById('Multnomah-B').addEventListener('click', function () {
                 map.flyTo({
                     center: [-122.07812398340792, 45.579724926842175],
@@ -312,8 +435,22 @@
                 })
             });
 
+        document.getElementById("Yellowstone-B").addEventListener('click', function () {
+                map.flyTo({
+                    center: [-111.11299743789438, 44.66404634409209],
+                    zoom: 11
+                })
+            });
+
 
         //Route C
+        document.getElementById('Hillsboro-C').addEventListener('click', function () {
+                map.flyTo({
+                    center: [-123.0249370143903, 45.52487467116839],
+                    zoom: 11
+                })
+            });
+
         document.getElementById('Bend-C').addEventListener('click', function () {
                 map.flyTo({
                     center: [-121.15637241419014, 44.04502801498819],
@@ -345,6 +482,13 @@
         document.getElementById('Caldera-C').addEventListener('click', function () {
                 map.flyTo({
                     center: [-111.44556662643467, 44.18472043711756],
+                    zoom: 11
+                })
+            });
+
+        document.getElementById("Yellowstone-C").addEventListener('click', function () {
+                map.flyTo({
+                    center: [-111.11299743789438, 44.66404634409209],
                     zoom: 11
                 })
             });
