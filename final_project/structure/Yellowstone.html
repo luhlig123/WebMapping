@@ -24,39 +24,42 @@
             width: 33%;
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 15px;
             box-sizing: border-box;
             overflow-y: auto;
         }
 
         .route-a-button {
-            background-color: darkgreen;
-            color: white;
-            width: 100%;
-        }
-
-        .route-a-button:hover {
-            background-color: green;
-        }
-
-        .route-b-button {
             background-color: darkblue;
             color: white;
             width: 100%;
+            height: 50px;
         }
 
-        .route-b-button:hover {
+        .route-a-button:hover {
             background-color: blue;
         }
 
-        .route-c-button {
+        .route-b-button {
             background-color: darkred;
             color: white;
             width: 100%;
+            height: 50px;
+        }
+
+        .route-b-button:hover {
+            background-color: red;
+        }
+
+        .route-c-button {
+            background-color: darkorange;
+            color: white;
+            width: 100%;
+            height: 50px;
         }
 
         .route-c-button:hover {
-            background-color: red;
+            background-color: orange;
         }
 
         .location-button {
@@ -81,7 +84,8 @@
         <p>Use this map to plan your next road trip!</p>
         <p>
             Use the locations buttons below to navigate to points of interest and 
-            use the route buttons to return to a full map view.
+            use the route buttons to return to a full map view. Click on the markers
+            for more information on each location.
         </p>
         <hr>
         <button class="route-a-button" id="route-a">Route A</button>
@@ -120,8 +124,49 @@
         <hr>
         <h4>Data Sources</h4>
         <ul>
-            <li>one</li>
-            <li>two</li>
+            <li>Routes made by Leo Uhlig using Google My Maps (2026)</li>
+            <li>Markers plotted using data from Google maps</li>
+            <li>
+                Beavertail Hill State Park: Montana FWP.
+                 Beavertail Hill State Park | Montana FWP.
+                  (2020, October 22). https://fwp.mt.gov/stateparks/beavertail-hill
+            </li>
+            <li>
+                Herrick, M. (2024, December 28).
+                 Volcanic calderas historical marker.
+                  Volcanic Calderas. https://www.hmdb.org/m.asp?m=103937
+            </li>
+            <li>
+                Higgens Point - visit Coeur d’Alene.
+                 Higgins Point. (n.d.).
+                  https://coeurdalene.org/places/idaho/coeur-dalene/hiking/higgens-point/
+            </li>
+            <li>
+                Register rock state historic site in Massacre Rocks State Park idaho.
+                 Southeast Idaho High Country. (2023, September 14).
+                  https://idahohighcountry.org/item/register-rock-state-historic-site/
+            </li>
+            <li>
+                Shoshone Falls Scenic attraction.
+                 Shoshone Falls Scenic Attraction | Twin Falls, ID - Official Website. (n.d.).
+                  https://www.tfid.org/309/Shoshone-Falls
+            </li>
+            <li>
+                U.S. Department of the Interior. (2025, February 7).
+                 Sprague Lake (U.S. National Park Service). National Parks Service.
+                  https://www.nps.gov/places/sprague-lake.htm
+            </li>
+            <li>
+                U.S. Department of the Interior. (2026, March 7).
+                 Bonneville Point (U.S. National Park Service). National Parks Service.
+                  https://www.nps.gov/places/000/bonneville-point.htm
+            </li>
+            <li>
+                Urban Forestry Program Finch A. Finch Arboretum.
+                 Program Finch A. Finch Arboretum - City of Spokane, Washington. (2025, November 4).
+                  https://my.spokanecity.org/urbanforestry/finch-arboretum/
+            </li>
+
         </ul>
     </div>
 
@@ -207,7 +252,7 @@
         var HigginsPopup = new mapboxgl.Popup()
             .setHTML(HigginsPopupContent);
 
-        var BeaverPopupContent = "<h3>Beavertail hill National Forest</h3>"
+        var BeaverPopupContent = "<h3>Beavertail hill National Forest, Montana</h3>"
         BeaverPopupContent += "<p>A riverside camping location.</p>"
         var BeaverPopup = new mapboxgl.Popup()
             .setHTML(BeaverPopupContent);
@@ -493,9 +538,6 @@
                 })
             });
 
-            
-
-        
 
     </script>
 
